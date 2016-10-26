@@ -1,24 +1,57 @@
-# README
+# Redis Spotify and Giphy API App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Synopsis
+This Rails application utilizes redis as a caching method for storage and retrieval of already searched
+information.  The user simply searches for an artist and queries request information from both the
+Spotify and Giphy APIs to return information on the artist.
 
-Things you may want to cover:
+##Code Example
+The following is the save method in the artists model.  The save method is called within the load
+method to allow redis to save already searched information for future reference.  The information
+is saved as key-value pairs with values being instance variables defined in the load method.
 
-* Ruby version
+```ruby
 
-* System dependencies
+def save
+  redis = Redis.new
 
-* Configuration
+  clean_artist = @artist.downcase.gsub(/\s+/, "+")
 
-* Database creation
+  redis.set(clean_artist + ':artist', @name)
 
-* Database initialization
+  redis.set(clean_artist + ':followers', @followers)
 
-* How to run the test suite
+  redis.set(clean_artist + ':genres', JSON.dump(@genres))
 
-* Services (job queues, cache servers, search engines, etc.)
+  redis.set(clean_artist + ':gifs', JSON.dump(@gifs))
 
-* Deployment instructions
+  redis.set(clean_artist + ':image', @image)
+end
 
-* ...
+```
+
+##Requirements
+This program requires a current version of Ruby, which can be found at:
+
+>https://www.ruby-lang.org/en/downloads/
+
+and a current version of Rails:
+
+>http://railsinstaller.org/en
+
+Download the repository, run
+
+>$ bundle install
+
+in the terminal to download all gems in the Gemfile.  Then switch to the directory in your file system and run:
+
+>$ rails s
+
+to open a Rails server.  Then go to:
+
+>localhost:3000/artists/guess
+
+in the web browser. 
+
+##Contributors
+Nate Semmler
