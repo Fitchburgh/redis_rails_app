@@ -1,0 +1,26 @@
+.container.container-all
+  %h1.first-header Enter in an artist:
+  .container.container-search
+    = form_for :artist, url: {action: "return"} do |f|
+      = f.text_field :artist
+      = f.submit "Enter"
+  .container.container-answer
+    - if @artist.nil?
+      %p.user-answer
+        Nope. Try again.
+    - else
+      %h1.answer
+        = "#{@artist.name}: "
+      %img{:alt => "artist image", :src => @artist.image}/
+      %h3.answer
+        = "#{@artist.followers} Spotify followers"
+      %h3.answer
+        = "Associated genres: "
+      %ul.answer-genres
+        - @artist.genres.each do |genre|
+          %li= genre
+      %h3.answer-gifs
+        = "Check 'em out:"
+      %ul.answer
+        - @artist.gifs.each do |gif|
+          %a{:href => gif} #{@artist.name} gif

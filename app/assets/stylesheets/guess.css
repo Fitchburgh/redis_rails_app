@@ -1,0 +1,40 @@
+body {
+  background-color: #E6E6E6;
+}
+
+.container-all {
+  padding-top: 1%;
+  text-align: center;
+}
+
+.container-search {
+  padding-top: 1%;
+}
+
+.container-answer {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  line-height:1.5em;
+  float:left;
+  display:inline;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  font-size: 18px;
+}
+
+.answer-genres {
+  width:760px;
+  margin-bottom:20px;
+  overflow:hidden;
+  padding-left: 37%;
+  text-align: center;
+}
+
+.img {
+  padding-top: 3%;
+  width: 50%;
+  height: 50%;
+}

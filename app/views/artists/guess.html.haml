@@ -1,0 +1,6 @@
+.container.container-all
+  %h1.first-header Enter in an artist:
+  .container.container-search
+    = form_for :artist, url: {action: "return"} do |f|
+      = f.text_field :artist
+      = f.submit "Enter"
