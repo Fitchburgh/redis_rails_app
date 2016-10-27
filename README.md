@@ -51,7 +51,7 @@ to open a Rails server.  Then go to:
 
 >localhost:3000/artists/guess
 
-in the web browser. 
+in the web browser.
 
 ##Contributors
 Nate Semmler

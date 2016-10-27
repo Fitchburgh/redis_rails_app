@@ -23,4 +23,4 @@
         = "Check 'em out:"
       %ul.answer
         - @artist.gifs.each do |gif|
-          %a{:href => gif} #{@artist.name} gif
+          %iframe{:src => gif}
