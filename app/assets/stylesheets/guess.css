@@ -1,8 +1,8 @@
 body {
-  /*background-color: #E6E6E6;*/
   background: #606c88;
   background: -webkit-linear-gradient(to left, #7D91DE , #DE7779);
   background: linear-gradient(to left, #7D91DE , #DE7779);
+  text-align: center;
 }
 
 .container-all {
@@ -114,4 +114,43 @@ li {
   -ms-transform:scale(1.15);
   -o-transform:scale(1.15);
   transform:scale(1.15);
+}
+
+.first-header {
+  text-align: center;
+  margin: 20px 0 20px 0;
+  text-decoration: none;
+  color: #000AE1;
+  font-family: 'Fascinate Inline', cursive;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #008BE1, 0 0 70px #008BE1, 0 0 80px #008BE1, 0 0 100px #008BE1, 0 0 150px #008BE1;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #008BE1, 0 0 35px #008BE1, 0 0 40px #008BE1, 0 0 50px #008BE1, 0 0 75px #008BE1;
+  }
+}
+
+@-moz-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #008BE1, 0 0 70px #008BE1, 0 0 80px #008BE1, 0 0 100px #008BE1, 0 0 150px #008BE1;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #008BE1, 0 0 35px #008BE1, 0 0 40px #008BE1, 0 0 50px #008BE1, 0 0 75px #008BE1;
+  }
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #008BE1, 0 0 70px #008BE1, 0 0 80px #008BE1, 0 0 100px #008BE1, 0 0 150px #008BE1;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #008BE1, 0 0 35px #008BE1, 0 0 40px #008BE1, 0 0 50px #008BE1, 0 0 75px #008BE1;
+  }
 }
