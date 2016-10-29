@@ -1,5 +1,8 @@
 body {
-  background-color: #E6E6E6;
+  /*background-color: #E6E6E6;*/
+  background: #606c88;
+  background: -webkit-linear-gradient(to left, #7D91DE , #DE7779);
+  background: linear-gradient(to left, #7D91DE , #DE7779);
 }
 
 .container-all {
@@ -18,10 +21,20 @@ body {
 h1 {
   font-family: 'Fascinate Inline', cursive;
   font-size: 70px;
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+  -o-animation: neon 1s ease infinite;
 }
 
 .artist {
   font-size: 64px;
+}
+
+.user-answer {
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 40px;
+  color: black;
 }
 
 h3 {
@@ -36,7 +49,29 @@ img {
 
 iframe {
   width: 90%;
-  height: 500px;
+  height: 600px;
+}
+
+.gif {
+  width: 45%;
+  height: 250px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.gif:hover {
+  -webkit-transform:scale(1.65);
+  -moz-transform:scale(1.65);
+  -ms-transform:scale(1.65);
+  -o-transform:scale(1.65);
+  transform:scale(1.65);
+}
+
+.answer {
+  padding-bottom: 4%;
 }
 
 .wrapper {
@@ -59,4 +94,24 @@ li {
   overflow:hidden;
   padding-left: 37%;
   text-align: center;
+}
+
+.genre {
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 28px;
+  font-weight: lighter;
+  color: #333333;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.genre:hover {
+  -webkit-transform:scale(1.15);
+  -moz-transform:scale(1.15);
+  -ms-transform:scale(1.15);
+  -o-transform:scale(1.15);
+  transform:scale(1.15);
 }

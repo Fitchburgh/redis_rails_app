@@ -5,9 +5,9 @@
       = f.text_field :artist
       = f.submit "Enter"
   .container.container-answer
-    - if @artist.nil?
+    - if @artist.name.nil?
       %p.user-answer
-        Nope. Try again.
+        Spotify cannot find this artist.
     - else
       %h1.artist
         #{@artist.name}
@@ -25,4 +25,4 @@
         = "Check 'em out:"
       %ul.answer
         - @artist.gifs.each do |gif|
-          %iframe{:src => gif}
+          %iframe.gif{:src => gif}
