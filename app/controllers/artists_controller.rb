@@ -7,4 +7,8 @@ class ArtistsController < ApplicationController
   def return
     @artist = Artist.new(params['artist']['artist'])
   end
+
+  def show
+    render :guess
+  end
 end
