@@ -5,6 +5,10 @@ body {
   text-align: center;
 }
 
+#artist_artist {
+  width: 350px;
+}
+
 .container-all {
   padding-top: 1%;
   text-align: center;
