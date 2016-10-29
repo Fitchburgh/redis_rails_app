@@ -9,17 +9,19 @@
       %p.user-answer
         Nope. Try again.
     - else
-      %h1.answer
-        = "#{@artist.name}: "
-      %img{:alt => "artist image", :src => @artist.image}/
-      %h3.answer
+      %h1.artist
+        #{@artist.name}
+      %h3.followers
         = "#{@artist.followers} Spotify followers"
-      %h3.answer
+      %img{:alt => "artist image", :src => @artist.image}/
+      .wrapper
+        %iframe{:src => "//en.wikipedia.org/wiki/#{@artist.name.gsub(/\\s/, '_')}"}
+      %h3.genres
         = "Associated genres: "
       %ul.answer-genres
         - @artist.genres.each do |genre|
-          %li= genre
-      %h3.answer-gifs
+          %a.genre #{genre}
+      %h3.gifs
         = "Check 'em out:"
       %ul.answer
         - @artist.gifs.each do |gif|
