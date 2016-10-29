@@ -74,6 +74,9 @@ GEM
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
+    jquery (0.0.1)
+    jquery-colorbox-rails (1.6.7.1)
+      railties (>= 3.1, <= 5.1)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -179,6 +182,8 @@ DEPENDENCIES
   haml-rails
   httparty
   jbuilder (~> 2.5)
+  jquery
+  jquery-colorbox-rails
   jquery-rails
   listen (~> 3.0.5)
   pg
