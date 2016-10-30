@@ -7,7 +7,27 @@ body {
 
 #artist_artist {
   width: 350px;
+  font-size: 23px;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  text-align: center;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
 }
+
+input[type=submit] {
+  color: black;
+  padding: 5px 15px;
+  border-style: solid black 2px;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+input[type=submit]:hover {
+  background-color: #999999;
+}
+
 
 .container-all {
   padding-top: 1%;

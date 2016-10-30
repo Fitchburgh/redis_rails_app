@@ -1,6 +1,7 @@
 require 'redis'
 require 'sidekiq'
 require 'httparty'
+require 'json'
 
 class GifSetWorker
   include Sidekiq::Worker

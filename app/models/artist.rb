@@ -1,7 +1,7 @@
 require 'redis'
 require 'sidekiq'
-require_relative '../workers/artist_get_worker.rb'
-require_relative '../workers/gif_get_worker.rb'
+require_relative '../workers/artist_set_worker.rb'
+require_relative '../workers/gif_set_worker.rb'
 require 'pry'
 
 class Artist
