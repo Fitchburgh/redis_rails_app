@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'artists#guess'
+
   get '/artists/guess'
 
   post '/artists/return'
