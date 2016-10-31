@@ -23,17 +23,17 @@ class Artist
   end
 
   def not_have_artist
-    Redis.current.get(@clean_artist + ':artist').nil?
+    REDIS.get(@clean_artist + ':artist').nil?
   end
 
   def find_artist
-    @name = Redis.current.get(@clean_artist + ':artist')
-    @image = Redis.current.get(@clean_artist + ':image')
-    @followers = Redis.current.get(@clean_artist + ':followers')
-    if !Redis.current.get(@clean_artist + ':genres').nil?
-      @genres = JSON.parse(Redis.current.get(@clean_artist + ':genres'))
-      if !Redis.current.get(@clean_artist + ':gifs').nil?
-        @gifs = JSON.parse(Redis.current.get(@clean_artist + ':gifs'))
+    @name = REDIS.get(@clean_artist + ':artist')
+    @image = REDIS.get(@clean_artist + ':image')
+    @followers = REDIS.get(@clean_artist + ':followers')
+    if !REDIS.get(@clean_artist + ':genres').nil?
+      @genres = JSON.parse(REDIS.get(@clean_artist + ':genres'))
+      if !REDIS.get(@clean_artist + ':gifs').nil?
+        @gifs = JSON.parse(REDIS.get(@clean_artist + ':gifs'))
       end
     end
   end

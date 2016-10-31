@@ -16,7 +16,7 @@ class GifSetWorker
       @gif_data[3]['embed_url']
     ]
 
-    @gifs = Redis.current.set(clean_artist + ':gifs', JSON.dump(gifs))
+    @gifs = REDIS.set(clean_artist + ':gifs', JSON.dump(gifs))
   end
 
   def get_json(url)
