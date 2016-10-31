@@ -94,6 +94,12 @@ iframe {
   transform:scale(1.65);
 }
 
+.nogifs {
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 28px;
+  color: black;
+}
+
 .answer {
   padding-bottom: 4%;
 }

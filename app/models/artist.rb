@@ -30,15 +30,19 @@ class Artist
     @name = Redis.current.get(@clean_artist + ':artist')
     @image = Redis.current.get(@clean_artist + ':image')
     @followers = Redis.current.get(@clean_artist + ':followers')
-    @genres = JSON.parse(Redis.current.get(@clean_artist + ':genres'))
-    @gifs = JSON.parse(Redis.current.get(@clean_artist + ':gifs'))
+    if !Redis.current.get(@clean_artist + ':genres').nil?
+      @genres = JSON.parse(Redis.current.get(@clean_artist + ':genres'))
+      if !Redis.current.get(@clean_artist + ':gifs').nil?
+        @gifs = JSON.parse(Redis.current.get(@clean_artist + ':gifs'))
+      end
+    end
   end
 
   def search_and_save_artist
     if @clean_artist.length >= 2
       ArtistSetWorker.perform_async(@clean_artist)
       GifSetWorker.perform_async(@clean_artist)
-      binding.pry
+      sleep(1.25)
       find_artist
     end
   end
