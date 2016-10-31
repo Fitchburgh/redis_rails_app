@@ -1,5 +1,5 @@
 require 'redis'
 
-# REDIS = Redis.new(:host => 'redis-animate-53848')
-uri = URI.parse(ENV["REDIS_URL"])
-REDIS = Redis.new(:url => uri)
+# Redis.current = Redis.new(:host => 'redis-animate-53848')
+uri = URI.parse(ENV["Redis.current_URL"])
+Redis.current = Redis.new(:url => uri)
