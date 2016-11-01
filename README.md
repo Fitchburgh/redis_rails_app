@@ -2,30 +2,27 @@
 
 ##Synopsis
 This Rails application utilizes redis as a caching method for storage and retrieval of already searched
-information.  The user simply searches for an artist and queries request information from both the
-Spotify and Giphy APIs to return information on the artist.
+information.  It uses workers to improve user speeds for the requesting of Spotify API information.  The user searches for an artist and queries request information from both the
+Spotify and Giphy APIs to return information on the artist, as well as their Wikipedia page.
 
 ##Code Example
-The following is the save method in the artists model.  The save method is called within the load
-method to allow redis to save already searched information for future reference.  The information
-is saved as key-value pairs with values being instance variables defined in the load method.
+The following is the worker method that requests and saves artist information from the Spotify API.  
+If the user searches for an artist that exists in the API, the artist name, number of followers, artist image, and all associated genres are saved as key value pairs in Redis.  The information is then requested from Redis to display on the page.
 
 ```ruby
 
-def save
-  redis = Redis.new
+def perform(clean_artist)
+  @data = get_json("https://api.spotify.com/v1/search?type=artist&q=#{clean_artist}")['artists']['items'][0]
+  unless @data.nil?
+    @name = Redis.current.set(clean_artist + ':artist', @data['name'])
+    @images = Redis.current.set(clean_artist + ':image', @data['images'][0]['url'])
+    @followers = Redis.current.set(clean_artist + ':followers', @data['followers']['total'])
+    @genres = Redis.current.set(clean_artist + ':genres', JSON.dump(@data['genres']))
+  end
+end
 
-  clean_artist = @artist.downcase.gsub(/\s+/, "+")
-
-  redis.set(clean_artist + ':artist', @name)
-
-  redis.set(clean_artist + ':followers', @followers)
-
-  redis.set(clean_artist + ':genres', JSON.dump(@genres))
-
-  redis.set(clean_artist + ':gifs', JSON.dump(@gifs))
-
-  redis.set(clean_artist + ':image', @image)
+def get_json(url)
+  HTTParty.get(url).parsed_response
 end
 
 ```
@@ -49,9 +46,9 @@ in the terminal to download all gems in the Gemfile.  Then switch to the directo
 
 to open a Rails server.  Then go to:
 
->localhost:3000/artists/guess
+>localhost:3000
 
-in the web browser.
+in the web browser and begin searching for artists.
 
 ##Contributors
 Nate Semmler

@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  ENV["REDIS_URL"] = 'redis://h:peouqndvghr88kcpk7h64u4194p@ec2-54-225-80-250.compute-1.amazonaws.com:10279'
+  # ENV["REDIS_URL"] = 'redis://h:peouqndvghr88kcpk7h64u4194p@ec2-54-225-80-250.compute-1.amazonaws.com:10279'
 
 
   # In the development environment your application's code is reloaded on

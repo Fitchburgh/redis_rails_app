@@ -42,7 +42,7 @@ class Artist
     if @clean_artist.length >= 2
       ArtistSetWorker.perform_async(@clean_artist)
       GifSetWorker.perform_async(@clean_artist)
-      sleep(1.25)
+      sleep(1)
       find_artist
     end
   end
